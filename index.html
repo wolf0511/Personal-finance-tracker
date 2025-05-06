@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Finance Tracker</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: Arial; padding: 1rem; background: #f0f4f8; }
+    h1 { text-align: center; font-size: 1.6rem; }
+    .container { max-width: 800px; margin: auto; background: #fff; padding: 1rem; border-radius: 10px; }
+    label { display: block; margin-top: 10px; font-weight: bold; }
+    input { width: 100%; padding: 0.5rem; margin-top: 5px; border-radius: 5px; border: 1px solid #ccc; }
+    button { margin-top: 1rem; width: 100%; padding: 0.8rem; background: #28a745; color: white; border: none; border-radius: 5px; font-weight: bold; }
+    button:hover { background: #218838; }
+    canvas { margin-top: 2rem; }
+    .summary { margin-top: 1rem; font-size: 1.1rem; }
+    .symbol { font-weight: bold; margin-right: 5px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Finance Tracker</h1>
+
+    <label><span class="symbol">💼</span> Salary:</label>
+    <input type="number" id="salary" />
+
+    <label><span class="symbol">➕</span> Other Income:</label>
+    <input type="number" id="other-income" />
+
+    <label><span class="symbol">⛽</span> Fuel Cost:</label>
+    <input type="number" id="fuel-cost" />
+
+    <label><span class="symbol">🛍️</span> Shopping:</label>
+    <input type="number" id="shopping" />
+
+    <label><span class="symbol">🏠</span> House Rent:</label>
+    <input type="number" id="house-rent" />
+
+    <label><span class="symbol">📦</span> Other Costs:</label>
+    <input type="number" id="other-costs" />
+
+    <label><span class="symbol">📈</span> 401k:</label>
+    <input type="number" id="401k" />
+
+    <label><span class="symbol">💹</span> Stock Investments:</label>
+    <input type="number" id="stock-investments" />
+
+    <label><span class="symbol">🏥</span> HSA:</label>
+    <input type="number" id="hsa" />
+
+    <label><span class="symbol">💰</span> Extra Savings:</label>
+    <input type="number" id="extra-savings" />
+
+    <button onclick="saveData()">Save Data</button>
+
+    <div class="summary">
+      <p><strong>Net Balance:</strong> <span id="net-balance">$0.00</span></p>
+    </div>
+
+    <canvas id="income-expense-chart"></canvas>
+    <canvas id="expense-breakdown-chart"></canvas>
+    <canvas id="investment-tracking-chart"></canvas>
+
+    <button onclick="exportData()">Export to CSV</button>
+  </div>
+
+  <script src="finance-tracker.js"></script>
+</body>
+</html>
